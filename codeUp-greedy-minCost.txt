@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    double[] pasta = new double[3];
+    double[] bever = new double[2];
+    double sum = 0;
+    double result = 0;
+
+    for(int i=0; i<3; i++){
+      pasta[i] = sc.nextDouble();
+    }
+
+    for(int i=0; i<2; i++){
+      bever[i] = sc.nextDouble();
+    }
+
+    Arrays.sort(pasta);
+    Arrays.sort(bever);
+
+    sum = pasta[0] + bever[0];
+
+    result = sum + (sum / 10.0);
+
+    System.out.println(result);
+
+    sc.close();
+  }
+}
