@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int corrent = sc.nextInt();
+    int aim = sc.nextInt();
+    int diff = corrent - aim;
+    int[] botton = {10, 5, 1};
+    int i = 0;
+    int count = 0;
+
+    while(diff != 0){
+      if(diff < 0){
+        diff = -diff;
+      }
+      if(diff >= botton[i] - 2){
+        diff -= botton[i];
+        count++;
+      }
+      else if(diff < botton[i] - 2){
+        i++;
+      }
+    }
+
+    System.out.println(count);
+
+    sc.close();
+  }
+}
