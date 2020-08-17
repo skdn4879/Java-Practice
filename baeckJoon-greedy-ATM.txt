@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int n = sc.nextInt(); //인원 수
+    int[] p = new int[n]; //각자 걸리는 시간
+    int wait = 0;
+    int result = 0;
+
+    for(int i=0; i<n; i++){
+      p[i] = sc.nextInt();
+    }
+
+    Arrays.sort(p); //작은 수부터 계산하기위해 오름차순 정렬
+
+    for(int i=0; i<n; i++){
+      wait += p[i]; //앞사람의 시간까지 기다리는 누적 시간
+      result += wait; //모두가 완료할 때까지 총 걸리는 시간
+    }
+
+    System.out.println(result);
+
+    sc.close();
+  }
+}
