@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int n = sc.nextInt(); //동전의 종류
+    int k = sc.nextInt(); //거슬러줄 금액
+    int[] coin = new int[n]; //동전의 가치
+    int temp;
+    int t = 0;
+    int count = 0;
+
+    for(int i=0; i<n; i++){
+      coin[i] = sc.nextInt();
+    }
+
+    for(int i=0; i<(coin.length / 2); i++){ //
+      temp = coin[i];
+      coin[i] = coin[coin.length - 1 - i];
+      coin[coin.length - 1 - i] = temp;
+    }
+    //큰 수부터 계산하는 것이 편하므로 뒤집어준다.
+
+    while(k != 0){
+      count += (k / coin[t]);
+      k = k % coin[t];
+
+      t++;
+    }
+
+    System.out.println(count);
+
+    sc.close();
+  }
+}
